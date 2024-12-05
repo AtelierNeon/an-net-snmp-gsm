@@ -12,6 +12,10 @@ if (NETSNMP_WITH_SSL AND OPENSSL_FOUND)
     include_directories (
         ${OPENSSL_INCLUDE_DIRS})
 endif ()
+if (NETSNMP_WITH_LIBSSH2 AND LIBSSH2_FOUND)
+    include_directories (
+        ${LIBSSH2_INCLUDE_DIRS})
+endif ()
 
 ## Component - netsnmp
 set (NETSNMP_NETSNMPLIB_NAME
@@ -74,7 +78,6 @@ set (NETSNMP_NETSNMPLIB_SRCS
     transports/snmpCallbackDomain.c
     transports/snmpIPv4BaseDomain.c
     transports/snmpSocketBaseDomain.c
-    #transports/snmpSSHDomain.c
     transports/snmpTCPDomain.c
     transports/snmpTCPBaseDomain.c
     transports/snmpUDPBaseDomain.c
@@ -98,6 +101,11 @@ if (UNIX)
         sd-daemon.c
         transports/snmpSTDDomain.c
         transports/snmpUnixDomain.c)
+    if (NETSNMP_WITH_LIBSSH2 AND LIBSSH2_FOUND)
+        set (NETSNMP_NETSNMPLIB_SRCS
+            ${NETSNMP_NETSNMPLIB_SRCS}
+            transports/snmpSSHDomain.c)
+    endif ()
     if (NOT APPLE)
         set (NETSNMP_NETSNMPLIB_SRCS
             ${NETSNMP_NETSNMPLIB_SRCS}
