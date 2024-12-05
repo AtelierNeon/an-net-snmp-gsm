@@ -12,6 +12,10 @@ if (NETSNMP_WITH_SSL AND OPENSSL_FOUND)
     include_directories (
         ${OPENSSL_INCLUDE_DIRS})
 endif ()
+if (NETSNMP_WITH_SSH AND LIBSSH2_FOUND)
+    include_directories (
+        ${LIBSSH2_INCLUDE_DIRS})
+endif ()
 
 ## Component - netsnmp
 set (NETSNMP_NETSNMPLIB_NAME
@@ -74,7 +78,6 @@ set (NETSNMP_NETSNMPLIB_SRCS
     transports/snmpCallbackDomain.c
     transports/snmpIPv4BaseDomain.c
     transports/snmpSocketBaseDomain.c
-    #transports/snmpSSHDomain.c
     transports/snmpTCPDomain.c
     transports/snmpTCPBaseDomain.c
     transports/snmpUDPBaseDomain.c
@@ -142,6 +145,14 @@ if (NETSNMP_WITH_SSL AND OPENSSL_FOUND)
     set (NETSNMP_NETSNMPLIB_LIBDEPS
         ${NETSNMP_NETSNMPLIB_LIBDEPS}
         ${OPENSSL_LIBRARIES})
+endif ()
+if (NETSNMP_WITH_SSH AND LIBSSH2_FOUND)
+    set (NETSNMP_NETSNMPLIB_SRCS
+        ${NETSNMP_NETSNMPLIB_SRCS}
+        transports/snmpSSHDomain.c)
+    set (NETSNMP_NETSNMPLIB_LIBDEPS
+        ${NETSNMP_NETSNMPLIB_LIBDEPS}
+        ${LIBSSH2_LIBRARIES})
 endif ()
 if (NETSNMP_WITH_SHARED_LIBRARIES)
     set (NETSNMP_NETSNMPLIB_LIBTYPE SHARED)
