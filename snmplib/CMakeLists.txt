@@ -12,7 +12,7 @@ if (NETSNMP_WITH_SSL AND OPENSSL_FOUND)
     include_directories (
         ${OPENSSL_INCLUDE_DIRS})
 endif ()
-if (NETSNMP_WITH_LIBSSH2 AND LIBSSH2_FOUND)
+if (NETSNMP_WITH_SSH AND LIBSSH2_FOUND)
     include_directories (
         ${LIBSSH2_INCLUDE_DIRS})
 endif ()
@@ -101,11 +101,6 @@ if (UNIX)
         sd-daemon.c
         transports/snmpSTDDomain.c
         transports/snmpUnixDomain.c)
-    if (NETSNMP_WITH_LIBSSH2 AND LIBSSH2_FOUND)
-        set (NETSNMP_NETSNMPLIB_SRCS
-            ${NETSNMP_NETSNMPLIB_SRCS}
-            transports/snmpSSHDomain.c)
-    endif ()
     if (NOT APPLE)
         set (NETSNMP_NETSNMPLIB_SRCS
             ${NETSNMP_NETSNMPLIB_SRCS}
@@ -150,6 +145,16 @@ if (NETSNMP_WITH_SSL AND OPENSSL_FOUND)
     set (NETSNMP_NETSNMPLIB_LIBDEPS
         ${NETSNMP_NETSNMPLIB_LIBDEPS}
         ${OPENSSL_LIBRARIES})
+endif ()
+if (NETSNMP_WITH_SSH AND LIBSSH2_FOUND)
+    if (UNIX)
+        set (NETSNMP_NETSNMPLIB_SRCS
+            ${NETSNMP_NETSNMPLIB_SRCS}
+            transports/snmpSSHDomain.c)
+        set (NETSNMP_NETSNMPLIB_LIBDEPS
+            ${NETSNMP_NETSNMPLIB_LIBDEPS}
+            ${LIBSSH2_LIBRARIES})
+    endif ()
 endif ()
 if (NETSNMP_WITH_SHARED_LIBRARIES)
     set (NETSNMP_NETSNMPLIB_LIBTYPE SHARED)
