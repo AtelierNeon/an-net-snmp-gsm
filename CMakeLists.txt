@@ -7,8 +7,8 @@ project (netsnmp
 
 ## Project options
 option (NETSNMP_WITH_IPV6 "Build Net-SNMP with IPv6 transports." OFF)
-option (NETSNMP_WITH_SSH "Build Net-SNMP with LibSSH2." OFF)
 option (NETSNMP_WITH_SDK "Build Net-SNMP with Microsoft Platform SDK." ON)
+option (NETSNMP_WITH_SSH "Build Net-SNMP with LibSSH2." OFF)
 option (NETSNMP_WITH_SSL "Build Net-SNMP with OpenSSL." OFF)
 option (NETSNMP_WITH_SHARED_LIBRARIES "Build shared version of the libnetsnmp library." OFF)
 option (NETSNMP_WITH_SHARED_LIBSSH2 "Build Net-SNMP with shared version of the LibSSH2 library." OFF)
