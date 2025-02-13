@@ -127,3 +127,45 @@
   if (should_init("winExtDLL")) init_winExtDLL();
 #endif
 
+#if 0
+  /* TODO */
+  if (should_init("disk_hw")) init_disk_hw();
+  if (should_init("logmatch")) init_logmatch();
+  if (should_init("memory")) init_memory();
+  if (should_init("vmstat")) init_vmstat();
+  if (should_init("notification_log")) init_notification_log();
+  if (should_init("nsVacmAccessTable")) init_nsVacmAccessTable();
+  if (should_init("mteScalars")) init_mteScalars();
+  if (should_init("schedCore")) init_schedCore();
+  if (should_init("schedConf")) init_schedConf();
+  if (should_init("schedTable")) init_schedTable();
+  if (should_init("hrh_storage")) init_hrh_storage();
+  if (should_init("hrh_filesys")) init_hrh_filesys();
+  if (should_init("hrSWInstalledTable")) init_hrSWInstalledTable();
+  if (should_init("hrSWRunTable")) init_hrSWRunTable();
+  if (should_init("ip_scalars")) init_ip_scalars();
+  if (should_init("snmpNotifyTable_data")) init_snmpNotifyTable_data();
+  if (should_init("snmpNotifyFilterTable_data_storage")) init_snmpNotifyFilterTable_data_storage();
+  if (should_init("snmpNotifyFilterProfileTable_data")) init_snmpNotifyFilterProfileTable_data();
+  if (should_init("snmpTargetAddrEntry_data")) init_snmpTargetAddrEntry_data();
+  if (should_init("snmpTargetParamsEntry_data")) init_snmpTargetParamsEntry_data();
+  if (should_init("swinst")) init_swinst();
+  if (should_init("swrun")) init_swrun();
+  if (should_init("hrSWRunPerfTable")) init_hrSWRunPerfTable();
+  if (should_init("ipAddressTable")) init_ipAddressTable();
+  if (should_init("ipAddressPrefixTable")) init_ipAddressPrefixTable();
+  if (should_init("ipDefaultRouterTable")) init_ipDefaultRouterTable();
+  if (should_init("inetNetToMediaTable")) init_inetNetToMediaTable();
+  if (should_init("ipSystemStatsTable")) init_ipSystemStatsTable();
+  if (should_init("ipv6ScopeZoneIndexTable")) init_ipv6ScopeZoneIndexTable();
+  if (should_init("ipIfStatsTable")) init_ipIfStatsTable();
+  if (should_init("ipCidrRouteTable")) init_ipCidrRouteTable();
+  if (should_init("inetCidrRouteTable")) init_inetCidrRouteTable();
+  if (should_init("tcpConnectionTable")) init_tcpConnectionTable();
+  if (should_init("tcpListenerTable")) init_tcpListenerTable();
+  if (should_init("udpEndpointTable")) init_udpEndpointTable();
+  if (should_init("hw_fsys")) init_hw_fsys();
+  if (should_init("hw_mem")) init_hw_mem();
+  if (should_init("cpu")) init_cpu();
+  if (should_init("cpu_linux")) init_cpu_linux();
+#endif

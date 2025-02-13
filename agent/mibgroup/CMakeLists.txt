@@ -127,14 +127,15 @@ if (NETSNMP_WITH_SDK)
         mibII/at.c
         mibII/icmp.c
         #mibII/interfaces.c
-        notification-log-mib/notification_log.c
-        winExtDLL.c)
+        notification-log-mib/notification_log.c)
     if (WIN32)
         set (NETSNMP_NETSNMPMIBSLIB_SRCS
             ${NETSNMP_NETSNMPMIBSLIB_SRCS}
             if-mib/data_access/interface_iphlpapi.c
-            mibII/data_access/at_iphlpapi.c)
-    else ()
+            mibII/data_access/at_iphlpapi.c
+            winExtDLL.c)
+    endif ()
+    if (UNIX)
         set (NETSNMP_NETSNMPMIBSLIB_SRCS
             ${NETSNMP_NETSNMPMIBSLIB_SRCS}
             ip-mib/ipAddressTable/ipAddressTable_interface.c
@@ -145,7 +146,6 @@ if (NETSNMP_WITH_SDK)
             ip-mib/ipDefaultRouterTable/ipDefaultRouterTable_data_access.c
             ip-mib/ipDefaultRouterTable/ipDefaultRouterTable_data_get.c
             ip-mib/data_access/arp_common.c
-            ip-mib/data_access/arp_netlink.c
             ip-mib/data_access/systemstats_common.c
             ip-mib/data_access/systemstats_linux.c
             ip-mib/data_access/scalars_linux.c
@@ -158,27 +158,35 @@ if (NETSNMP_WITH_SDK)
             ip-forward-mib/inetCidrRouteTable/inetCidrRouteTable_data_access.c
             tcp-mib/data_access/tcpConn_common.c
             tcp-mib/data_access/tcpConn_linux.c
-            util_funcs/get_pid_from_inode.c
             tcp-mib/tcpConnectionTable/tcpConnectionTable_interface.c
             tcp-mib/tcpConnectionTable/tcpConnectionTable_data_access.c
             tcp-mib/tcpListenerTable/tcpListenerTable_interface.c
             tcp-mib/tcpListenerTable/tcpListenerTable_data_access.c
             udp-mib/udpEndpointTable/udpEndpointTable_interface.c
             udp-mib/udpEndpointTable/udpEndpointTable_data_access.c
-            if-mib/data_access/interface_linux.c
             if-mib/data_access/interface_ioctl.c
             ip-mib/data_access/ipaddress_common.c
-            ip-mib/data_access/ipaddress_linux.c
             ip-mib/data_access/defaultrouter_common.c
-            ip-mib/data_access/defaultrouter_linux.c
             ip-mib/data_access/ipv6scopezone_common.c
-            ip-mib/data_access/ipv6scopezone_linux.c
             ip-forward-mib/data_access/route_common.c
-            ip-forward-mib/data_access/route_linux.c
-            ip-forward-mib/data_access/route_ioctl.c
-            udp-mib/data_access/udp_endpoint_common.c
-            udp-mib/data_access/udp_endpoint_linux.c
-            ip-mib/data_access/ipaddress_ioctl.c)
+            udp-mib/data_access/udp_endpoint_common.c)
+        if (APPLE)
+            # TODO
+        else ()
+            set (NETSNMP_NETSNMPMIBSLIB_SRCS
+                ${NETSNMP_NETSNMPMIBSLIB_SRCS}
+                util_funcs/get_pid_from_inode.c
+                mibII/ipv6.c
+                if-mib/data_access/interface_linux.c
+                ip-mib/data_access/arp_netlink.c
+                ip-mib/data_access/ipaddress_ioctl.c
+                ip-mib/data_access/ipaddress_linux.c
+                ip-mib/data_access/defaultrouter_linux.c
+                ip-mib/data_access/ipv6scopezone_linux.c
+                ip-forward-mib/data_access/route_ioctl.c
+                ip-forward-mib/data_access/route_linux.c
+                udp-mib/data_access/udp_endpoint_linux.c)
+        endif ()
     endif ()
     if (NOT APPLE)
         set (NETSNMP_NETSNMPMIBSLIB_SRCS
@@ -191,11 +199,6 @@ if (NETSNMP_WITH_SDK)
             mibII/udp.c
             mibII/udpTable.c
             mibII/var_route.c)
-        if (UNIX)
-            set (NETSNMP_NETSNMPMIBSLIB_SRCS
-                ${NETSNMP_NETSNMPMIBSLIB_SRCS}
-                mibII/ipv6.c)
-        endif ()
     endif ()
 endif ()
 set (NETSNMP_NETSNMPMIBSLIB_LIBDEPS
