@@ -3,6 +3,9 @@
 #ifndef MIB_MODULE_CONFIG_H
 #define MIB_MODULE_CONFIG_H
 
+/* Define if compiling with the default_modules module files.  */
+#define USING_DEFAULT_MODULES_MODULE 1
+
 /* Define if compiling with the mibII module files.  */
 #define USING_MIBII_MODULE 1
 
@@ -17,9 +20,20 @@
  
 /* Define if compiling with the disman/event module files.  */
 #define USING_DISMAN_EVENT_MODULE 1
+
+/* Define if compiling with the disman/schedule module files.  */
+#define USING_DISMAN_SCHEDULE_MODULE 1
  
+#if defined(HAVE_HOST_MODULE)
+/* Define if compiling with the host module files.  */
+#define USING_HOST_MODULE 1
+#endif
+ 
+/* Define if compiling with the notification-log-mib module files.  */
+#define USING_NOTIFICATION_LOG_MIB_MODULE 1
+ 
+#if defined(HAVE_WIN32_PLATFORM_SDK) || defined(HAVE_NOTIFICATION_LOG_MIB_NOTIFICATION_LOG_MODULE)
 /* Define if compiling with the notification-log-mib module files. */
-#ifdef HAVE_WIN32_PLATFORM_SDK
 #define USING_NOTIFICATION_LOG_MIB_NOTIFICATION_LOG_MODULE 1
 #endif
 
@@ -35,8 +49,8 @@
 /* Define if compiling with the agent_mibs module files.  */
 #define USING_AGENT_MIBS_MODULE 1
  
-/* Define if compiling with the agent_mibs module files.  */
-#define USING_AGENT_MIBS_MODULE 1
+/* Define if compiling with the agentx module files.  */
+#define USING_AGENTX_MODULE 1
  
 /* Define if compiling with the utilities module files.  */
 #define USING_UTILITIES_MODULE 1
@@ -115,6 +129,9 @@
 
 #ifdef USING_UCD_SNMP_MODULE
 
+/* Define if compiling with the ucd-snmp/disk_hw module files.  */
+#define USING_UCD_SNMP_DISK_HW_MODULE 1
+ 
 /* Define if compiling with the ucd-snmp/memory module files.  */
 #define USING_UCD_SNMP_MEMORY_MODULE 1
  
@@ -156,6 +173,9 @@
  
 /* Define if compiling with the ucd-snmp/proxy module files.  */
 #define USING_UCD_SNMP_PROXY_MODULE 1
+ 
+/* Define if compiling with the ucd-snmp/pass_common module files.  */
+#define USING_UCD_SNMP_PASS_COMMON_MODULE 1
 
 #endif /* USING_UCD_SNMP_MODULE */
 
@@ -176,7 +196,7 @@
  
 /* Define if compiling with the snmpv3/usmUser module files.  */
 #define USING_SNMPV3_USMUSER_MODULE 1
-
+ 
 /* Define if compiling with the notification/snmpNotifyTable module files.  */
 #define USING_NOTIFICATION_SNMPNOTIFYTABLE_MODULE 1
  
