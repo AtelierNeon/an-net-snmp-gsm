@@ -1776,7 +1776,7 @@ enum {
 
 /* MSVC OpenSSL linker settings. */
 #if defined(_MSC_VER)
-#  if defined(NETSNMP_USE_OPENSSL)
+#  if defined(NETSNMP_USE_OPENSSL) && !defined(NETSNMP_USE_SIBLING_OPENSSL)
 #    ifdef _DLL
 #      ifdef _DEBUG
 #        ifdef OPENSSL_BEFORE_1_1_0

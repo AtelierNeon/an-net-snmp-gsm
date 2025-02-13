@@ -175,12 +175,23 @@
 /* Define to 1 if the system has the type `Counter64'. */
 #undef HAVE_COUNTER64
 
+/* Define to 1 if you have the <crt_externs.h> header file. */
+#undef HAVE_CRT_EXTERNS_H
+
 /* Define to 1 if you have the <curses.h> header file. */
 #cmakedefine HAVE_CURSES_H 1
+
+/* Define to 1 if you have the declaration of `daylight', and to 0 if you
+   don't. */
+#undef HAVE_DECL_DAYLIGHT
 
 /* Define to 1 if you have the declaration of `sensors_get_all_subfeatures',
    and to 0 if you don't. */
 #cmakedefine HAVE_DECL_SENSORS_GET_ALL_SUBFEATURES 1
+
+/* Define to 1 if you have the declaration of `timezone', and to 0 if you
+   don't. */
+#undef HAVE_DECL_TIMEZONE
 
 /* define to 1 if you have IRE_CACHE defined in <inet/ip.h> header file. */
 #undef HAVE_DEFINED_IRE_CACHE
@@ -222,6 +233,12 @@
 /* Define to 1 if you have the `DTLS_method' function. */
 #cmakedefine HAVE_DTLS_METHOD ${HAVE_DTLS_METHOD}
 
+/* Define to 1 if you have the `endfsent' function. */
+#undef HAVE_ENDFSENT
+
+/* Define to 1 if you have the `ERR_get_error_all' function. */
+#undef HAVE_ERR_GET_ERROR_ALL
+
 /* Define to 1 if you have the <err.h> header file. */
 #cmakedefine HAVE_ERR_H 1
 
@@ -243,10 +260,10 @@
 /* Define to 1 if you have the `EVP_MD_CTX_new' function. */
 #cmakedefine HAVE_EVP_MD_CTX_NEW ${HAVE_EVP_MD_CTX_NEW}
 
-/* Define if you have EVP_sha224/256 in openssl */
+/* Define to 1 if you have the `EVP_sha224' function. */
 #cmakedefine HAVE_EVP_SHA224 ${HAVE_EVP_SHA224}
 
-/* Define if you have EVP_sha384/512 in openssl */
+/* Define to 1 if you have the `EVP_sha384' function. */
 #cmakedefine HAVE_EVP_SHA384 ${HAVE_EVP_SHA384}
 
 /* Define to 1 if you have the `execv' function. */
@@ -288,6 +305,9 @@
 /* Define to 1 if you have the `getdtablesize' function. */
 #cmakedefine HAVE_GETDTABLESIZE 1
 
+/* Define to 1 if you have the `getfsent' function. */
+#undef HAVE_GETFSENT
+
 /* Define to 1 if you have the `getfsstat' function. */
 #cmakedefine HAVE_GETFSSTAT 1
 
@@ -324,8 +344,14 @@
 /* Define to 1 if you have the `getloadavg' function. */
 #cmakedefine HAVE_GETLOADAVG 1
 
+/* Define to 1 if you have the `getlogin' function. */
+#undef HAVE_GETLOGIN
+
 /* Define to 1 if you have the `getmntent' function. */
 #cmakedefine HAVE_GETMNTENT 1
+
+/* Define to 1 if you have the `getmntinfo' function. */
+#undef HAVE_GETMNTINFO
 
 /* Define to 1 if you have the `getopt' function. */
 #cmakedefine HAVE_GETOPT 1
@@ -463,6 +489,9 @@
 /* Define to 1 if you have the `krb5_auth_con_getsendsubkey' function. */
 #undef HAVE_KRB5_AUTH_CON_GETSENDSUBKEY
 
+/* Define to 1 if `enctype' is a member of `krb5_keyblock'. */
+#undef HAVE_KRB5_KEYBLOCK_ENCTYPE
+
 /* Define to 1 if you have the <kstat.h> header file. */
 #cmakedefine HAVE_KSTAT_H 1
 
@@ -562,7 +591,14 @@
 /* Define to 1 if you have the <linux/tasks.h> header file. */
 #cmakedefine HAVE_LINUX_TASKS_H 1
 
-/* Define if load_defaults() is available in libmysqlclient */
+/* Define to 1 if you have the <lm.h> header file. */
+#ifdef WIN32
+# define HAVE_LM_H 1
+#else
+# cmakedefine HAVE_LM_H 1
+#endif
+
+/* Define to 1 if you have the `load_defaults' function. */
 #undef HAVE_LOAD_DEFAULTS
 
 /* Define to 1 if you have the <locale.h> header file. */
@@ -592,6 +628,9 @@
 /* Define to 1 if you have the <machine/types.h> header file. */
 #cmakedefine HAVE_MACHINE_TYPES_H 1
 
+/* Define to 1 if you have the <mach-o/dyld.h> header file. */
+#undef HAVE_MACH_O_DYLD_H
+
 /* Define to 1 if you have the <malloc.h> header file. */
 #cmakedefine HAVE_MALLOC_H 1
 
@@ -600,6 +639,9 @@
 
 /* Define to 1 if the system has the type `mib2_ipIfStatsEntry_t'. */
 #undef HAVE_MIB2_IPIFSTATSENTRY_T
+
+/* Define if MIB_IF_TABLE2 is available */
+#undef HAVE_MIB_IF_TABLE2
 
 /* Define to 1 if you have the `mkstemp' function. */
 #cmakedefine HAVE_MKSTEMP 1
@@ -613,14 +655,23 @@
 /* Define to 1 if you have the <mtab.h> header file. */
 #cmakedefine HAVE_MTAB_H 1
 
-/* Define if mysql_init() is available in libmysqlclient */
+/* Define to 1 if you have the `mysql_init' function. */
 #undef HAVE_MYSQL_INIT
+
+/* Define to 1 if you have the `mysql_options' function. */
+#undef HAVE_MYSQL_OPTIONS
+
+/* Define to 1 if you have the <my_global.h> header file. */
+#undef HAVE_MY_GLOBAL_H
 
 /* Define if MY_INIT() is availabe in libmysqlclient */
 #undef HAVE_MY_INIT
 
 /* Define if having my_load_defaults() */
 #undef HAVE_MY_LOAD_DEFAULTS
+
+/* Define to 1 if you have the <my_sys.h> header file. */
+#undef HAVE_MY_SYS_H
 
 /* Define to 1 if you have the <nbutil.h> header file. */
 #cmakedefine HAVE_NBUTIL_H 1
@@ -821,6 +872,9 @@
 /* Define to 1 if you have the `poll' function. */
 #cmakedefine HAVE_POLL 1
 
+/* Define to 1 if you have the `posix_spawn' function. */
+#undef HAVE_POSIX_SPAWN
+
 /* Define to 1 if you have the `pread64' function. */
 #cmakedefine HAVE_PREAD64 1
 
@@ -873,6 +927,9 @@
 /* Define to 1 if you have the <rpm/rpmts.h> header file. */
 #cmakedefine HAVE_RPM_RPMTS_H 1
 
+/* Define if timezone declared as a scalar in <time.h> */
+#undef HAVE_SCALAR_TIMEZONE
+
 /* Define to 1 if you have the <search.h> header file. */
 #cmakedefine HAVE_SEARCH_H 1
 
@@ -887,6 +944,9 @@
 
 /* Define to 1 if you have the `setenv' function. */
 #cmakedefine HAVE_SETENV 1
+
+/* Define to 1 if you have the `setfsent' function. */
+#undef HAVE_SETFSENT
 
 /* Define to 1 if you have the `setgid' function. */
 #cmakedefine HAVE_SETGID 1
@@ -955,6 +1015,12 @@
 # cmakedefine HAVE_SOCKLEN_T 1
 #endif
 
+/* Define to 1 if SO_BINDTODEVICE is available */
+#undef HAVE_SO_BINDTODEVICE
+
+/* Define to 1 if you have the <spawn.h> header file. */
+#undef HAVE_SPAWN_H
+
 /* Define to 1 if you have the `srand' function. */
 #cmakedefine HAVE_SRAND 1
 
@@ -984,7 +1050,7 @@
 #cmakedefine HAVE_STATVFS 1
 
 /* Define to 1 if you have the <stdint.h> header file. */
-#ifdef __MINGW32__
+#if defined(__MINGW32__) || (defined(_MSC_VER) && (_MSC_VER >= 1600))
 # define HAVE_STDINT_H 1
 #else
 # cmakedefine HAVE_STDINT_H 1
@@ -1094,6 +1160,12 @@
 
 /* Define to 1 if `if_xname' is a member of `struct ifnet'. */
 #undef HAVE_STRUCT_IFNET_IF_XNAME
+
+/* Define to 1 if `ia_subnetmask' is a member of `struct in_ifaddr'. */
+#undef HAVE_STRUCT_IN_IFADDR_IA_SUBNETMASK
+
+/* Define to 1 if `ipi_spec_dst' is a member of `struct in_pktinfo'. */
+#undef HAVE_STRUCT_IN_PKTINFO_IPI_SPEC_DST
 
 /* Define to 1 if `ip6s_exthdrtoolong ' is a member of `struct ip6stat'. */
 #undef HAVE_STRUCT_IP6STAT_IP6S_EXTHDRTOOLONG_
@@ -1228,6 +1300,9 @@
 
 /* Define to 1 if `tm_gmtoff' is a member of `struct tm'. */
 #undef HAVE_STRUCT_TM_TM_GMTOFF
+
+/* Define to 1 if `tm_isdst' is a member of `struct tm'. */
+#undef HAVE_STRUCT_TM_TM_ISDST
 
 /* Define to 1 if `udps_discard' is a member of `struct udpstat'. */
 #undef HAVE_STRUCT_UDPSTAT_UDPS_DISCARD
@@ -1453,9 +1528,6 @@
 /* Define to 1 if you have the `times' function. */
 #cmakedefine HAVE_TIMES 1
 
-/* Define if a timezone variable is declared in <sys/time.h> */
-#undef HAVE_TIMEZONE_VARIABLE
-
 /* Define to 1 if you have the `TLSv1_method' function. */
 #cmakedefine HAVE_TLSV1_METHOD 1
 
@@ -1516,6 +1588,12 @@
 /* Define to 1 if you have the <validator/validator-config.h> header file. */
 #cmakedefine HAVE_VALIDATOR_VALIDATOR_CONFIG_H 1
 
+/* Define to 1 if you have the `vm_region' function. */
+#undef HAVE_VM_REGION
+
+/* Define to 1 if you have the `vm_region_64' function. */
+#undef HAVE_VM_REGION_64
+
 /* Define to 1 if you have the <vm/swap_pager.h> header file. */
 #cmakedefine HAVE_VM_SWAP_PAGER_H 1
 
@@ -1555,13 +1633,27 @@
 /* Define to 1 if you have the <xti.h> header file. */
 #cmakedefine HAVE_XTI_H 1
 
+/* Type of the fifth argument of select() */
+#ifdef WIN32
+# define NETSNMP_SELECT_TIMEVAL struct timeval
+#else
+# undef NETSNMP_SELECT_TIMEVAL
+#endif
+
+/* Type of the third argument of ioctlsocket() */
+#ifdef WIN32
+# define NETSNMP_IOCTLSOCKET_ARG u_long
+#else
+# undef NETSNMP_IOCTLSOCKET_ARG
+#endif
+
 /* location of UNIX kernel */
 #cmakedefine KERNEL_LOC ${KERNEL_LOC}
 
 /* Path to the lpstat command */
 #define LPSTAT_PATH "/usr/bin/lpstat"
 
-/* Define to the sub-directory in which libtool stores uninstalled libraries.
+/* Define to the sub-directory where libtool stores uninstalled libraries.
    */
 #undef LT_OBJDIR
 
@@ -1576,7 +1668,11 @@
 #define NETSNMP_ATTRIBUTE_DEPRECATED
 
 /* Used to suppress compiler warnings about unused functions and variables */
-#cmakedefine NETSNMP_ATTRIBUTE_UNUSED
+#ifdef WIN32
+# define NETSNMP_ATTRIBUTE_UNUSED
+#else
+# undef NETSNMP_ATTRIBUTE_UNUSED
+#endif
 
 /* Define if static inline functions are unsupported */
 #undef NETSNMP_BROKEN_INLINE
@@ -1650,7 +1746,11 @@
 #undef NETSNMP_FORCE_SYSTEM_V3_AUTHPRIV
 
 /* Should evaluate to the name of the current function if defined */
-#undef NETSNMP_FUNCTION
+#ifdef WIN32
+# define NETSNMP_FUNCTION __FUNCTION__
+#else
+# undef NETSNMP_FUNCTION
+#endif
 
 /* ifnet needs to have _KERNEL defined */
 #undef NETSNMP_IFNET_NEEDS_KERNEL
@@ -1692,13 +1792,6 @@
 
 /* umask permissions to set up persistent files with */
 #undef NETSNMP_PERSISTENT_MASK
-
-/* Size prefix to use to printf a uint32_t */
-#ifdef WIN32
-# define NETSNMP_PRI32 ""
-#else
-# undef NETSNMP_PRI32
-#endif
 
 /* Size prefix to use to printf a size_t or ssize_t */
 #cmakedefine NETSNMP_PRIz ${NETSNMP_PRIz}
@@ -1819,6 +1912,32 @@
 /* define if SIOCGIFADDR exists in sys/ioctl.h */
 #undef SYS_IOCTL_H_HAS_SIOCGIFADDR
 
+#if defined(_M_PPC) || defined(_M_MPPC) || defined(_M_ARM) || defined(_M_ARM64) || defined(_M_ARM64EC)
+# define NETSNMP_BIGENDIAN 1
+#elif defined(_M_IX86) || defined(_M_X64)
+# define NETSNMP_BIGENDIAN 0
+#elif defined(WIN32)
+#  error Unknown byte order
+#elif defined(__BYTE_ORDER__)
+# if __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+#  define NETSNMP_BIGENDIAN 1
+# elif __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+#  define NETSNMP_BIGENDIAN 0
+# else
+#  error Unknown byte order
+# endif
+#else
+# define NETSNMP_BIGENDIAN                              \
+    (__extension__                                      \
+     ({                                                 \
+         union { unsigned long l; unsigned char c; } u; \
+                                                        \
+         u.l = 1;                                       \
+         u.c == 0;                                      \
+     })                                                 \
+    )
+#endif
+
 /* Define if the TCP timer constants in <netinet/tcp_timer.h> depend on the
    integer variable 'hz'. [FreeBSD 4.x] */
 #undef TCPTV_NEEDS_HZ
@@ -1851,18 +1970,6 @@
 #endif
 
 
-/* Define WORDS_BIGENDIAN to 1 if your processor stores words with the most
-   significant byte first (like Motorola and SPARC, unlike Intel). */
-#if defined AC_APPLE_UNIVERSAL_BUILD
-# if defined __BIG_ENDIAN__
-#  define WORDS_BIGENDIAN 1
-# endif
-#else
-# ifndef WORDS_BIGENDIAN
-#  undef WORDS_BIGENDIAN
-# endif
-#endif
-
 /* Define to 1 if on MINIX. */
 #undef _MINIX
 
@@ -1890,6 +1997,11 @@
 
 /* Define to empty if `const' does not conform to ANSI C. */
 #undef const
+
+/* type check for in_addr_t */
+#ifndef HAVE_IN_ADDR_T
+#define in_addr_t unsigned long
+#endif
 
 /* Define to `__inline__' or `__inline' if that's what the C compiler
    calls it, or to nothing if 'inline' is not supported under any name.  */
@@ -2056,6 +2168,21 @@
 
 /* Use libwrap to handle allow/deny hosts? */
 #undef NETSNMP_USE_LIBWRAP
+
+/* Define if _beginthreadex() is defined in <process.h> */
+#cmakedefine HAVE__BEGINTHREADEX 1
+
+/* Define if _cputs() is defined in <conio.h> */
+#cmakedefine HAVE__CPUTS 1
+
+/* Define if _getch() is defined in <conio.h> */
+#cmakedefine HAVE__GETCH 1
+
+/* Define if _get_osfhandle() is defined in <io.h> */
+#cmakedefine HAVE__GET_OSFHANDLE 1
+
+/* Define if _open_osfhandle() is defined in <io.h> */
+#cmakedefine HAVE__OPEN_OSFHANDLE 1
 
 /* Mib-2 tree Info */
 /* These are the system information variables. */
@@ -2385,6 +2512,11 @@
 #include NETSNMP_SYSTEM_INCLUDE_FILE
 #include NETSNMP_MACHINE_INCLUDE_FILE
 
+#ifdef WIN32
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#endif
+
 #if NETSNMP_ENABLE_INLINE && !defined(NETSNMP_NO_INLINE)
 #   define NETSNMP_USE_INLINE 1
 #   ifndef NETSNMP_INLINE
@@ -2458,12 +2590,12 @@ typedef __int64 intmax_t;
   #ifdef NETSNMP_DLL
     #if defined(_MSC_VER)
       #undef NETSNMP_IMPORT
-      #define NETSNMP_IMPORT __declspec(dllexport)
+      #define NETSNMP_IMPORT extern __declspec(dllexport)
     #endif
   #else
     #if defined(_MSC_VER)
       #undef NETSNMP_IMPORT
-      #define NETSNMP_IMPORT __declspec(dllimport)
+      #define NETSNMP_IMPORT extern __declspec(dllimport)
     #endif
   #endif   /* NETSNMP_DLL */
 #endif     /* NETSNMP_USE_DLL */

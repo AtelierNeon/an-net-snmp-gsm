@@ -15,6 +15,65 @@ main()
 }
 #endif
 
+#ifdef HAVE__BEGINTHREADEX
+#include <stddef.h>
+#include <process.h>
+
+int
+main ()
+{
+ _beginthreadex(NULL, 0, NULL, NULL, 0, NULL);
+  ;
+  return 0;
+}
+#endif
+
+#ifdef HAVE__CPUTS
+#include <conio.h>
+int
+main ()
+{
+ _cputs(0);
+  ;
+  return 0;
+}
+#endif
+
+#ifdef HAVE__GETCH
+#include <conio.h>
+int
+main ()
+{
+ return _getch();
+  ;
+  return 0;
+}
+#endif
+
+#ifdef HAVE__GET_OSFHANDLE
+#include <io.h>
+int
+main ()
+{
+ _get_osfhandle(0);
+  ;
+  return 0;
+}
+#endif
+
+#ifdef HAVE__OPEN_OSFHANDLE
+#include <stddef.h>
+#include <io.h>
+
+int
+main ()
+{
+ _open_osfhandle(NULL, 0);
+  ;
+  return 0;
+}
+#endif
+
 #ifdef HAVE_IN_ADDR_T
 #include <sys/types.h>
 #include <sys/socket.h>

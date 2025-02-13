@@ -125,6 +125,7 @@ if (NETSNMP_WITH_SDK)
     if (WIN32)
         set (NETSNMP_NETSNMPMIBSLIB_SRCS
             ${NETSNMP_NETSNMPMIBSLIB_SRCS}
+            if-mib/data_access/interface_iphlpapi.c
             mibII/data_access/at_iphlpapi.c)
     endif ()
     if (NOT APPLE)
