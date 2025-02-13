@@ -366,5 +366,16 @@
 #define USING_HEADER_COMPLEX_MODULE 1
  
 
+/* TODO USING_RMON_MODULE+ */
+ 
+/* Define if compiling with the ip-forward-mib/ipCidrRouteTable/ipCidrRouteTable module files.  */
+#define USING_IP_FORWARD_MIB_IPCIDRROUTETABLE_IPCIDRROUTETABLE_MODULE 1
+ 
+/* Define if compiling with the ip-forward-mib/inetCidrRouteTable/inetCidrRouteTable module files.  */
+#define USING_IP_FORWARD_MIB_INETCIDRROUTETABLE_INETCIDRROUTETABLE_MODULE 1
+ 
+/* TODO USING_RMON_MODULE- */
+
+
 #endif /* MIB_MODULE_CONFIG_H */
  
