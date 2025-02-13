@@ -76,6 +76,7 @@ set (NETSNMP_NETSNMPLIB_SRCS
     #transports/snmpAAL5PVCDomain.c
     transports/snmpAliasDomain.c
     transports/snmpCallbackDomain.c
+    transports/snmpIPBaseDomain.c
     transports/snmpIPv4BaseDomain.c
     transports/snmpSocketBaseDomain.c
     transports/snmpTCPDomain.c
