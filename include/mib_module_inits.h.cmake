@@ -8,7 +8,7 @@
 
 #ifdef HAVE_WIN32_PLATFORM_SDK
   if (should_init("at")) init_at();
-#if 1
+#if 0
   if (should_init("interfaces")) init_interfaces();
 #else
   if (should_init("ifTable")) init_ifTable();

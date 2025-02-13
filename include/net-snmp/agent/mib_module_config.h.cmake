@@ -53,7 +53,7 @@
 /* Define if compiling with the mibII/at module files.  */
 #define USING_MIBII_AT_MODULE 1
  
-#if 1
+#if 0
 /* Define if compiling with the mibII/interfaces module files.  */
 #define USING_MIBII_INTERFACES_MODULE 1
 #else

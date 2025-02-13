@@ -117,9 +117,16 @@ set (NETSNMP_NETSNMPMIBSLIB_SRCS
 if (NETSNMP_WITH_SDK)
     set (NETSNMP_NETSNMPMIBSLIB_SRCS
         ${NETSNMP_NETSNMPMIBSLIB_SRCS}
+        if-mib/ifTable/ifTable.c
+        if-mib/ifTable/ifTable_data_access.c
+        if-mib/ifTable/ifTable_interface.c
+        if-mib/ifXTable/ifXTable.c
+        if-mib/ifXTable/ifXTable_data_access.c
+        if-mib/ifXTable/ifXTable_interface.c
+        if-mib/data_access/interface.c
         mibII/at.c
         mibII/icmp.c
-        mibII/interfaces.c
+        #mibII/interfaces.c
         notification-log-mib/notification_log.c
         winExtDLL.c)
     if (WIN32)
