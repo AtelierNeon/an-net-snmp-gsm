@@ -1634,11 +1634,7 @@
 #cmakedefine HAVE_XTI_H 1
 
 /* Type of the fifth argument of select() */
-#ifdef WIN32
-# define NETSNMP_SELECT_TIMEVAL struct timeval
-#else
-# undef NETSNMP_SELECT_TIMEVAL
-#endif
+#define NETSNMP_SELECT_TIMEVAL struct timeval
 
 /* Type of the third argument of ioctlsocket() */
 #ifdef WIN32
@@ -1671,7 +1667,7 @@
 #ifdef WIN32
 # define NETSNMP_ATTRIBUTE_UNUSED
 #else
-# undef NETSNMP_ATTRIBUTE_UNUSED
+# define NETSNMP_ATTRIBUTE_UNUSED __attribute__((unused))
 #endif
 
 /* Define if static inline functions are unsupported */
@@ -1749,7 +1745,7 @@
 #ifdef WIN32
 # define NETSNMP_FUNCTION __FUNCTION__
 #else
-# undef NETSNMP_FUNCTION
+# define NETSNMP_FUNCTION __func__
 #endif
 
 /* ifnet needs to have _KERNEL defined */
