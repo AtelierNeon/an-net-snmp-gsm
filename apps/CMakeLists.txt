@@ -490,6 +490,7 @@ set (NETSNMP_SNMPTRAPD_SRCS
     snmptrapd.c
     snmptrapd_handlers.c
     snmptrapd_log.c
+    ../agent/kernel.c
     ../snmplib/winservice.c)
 set (NETSNMP_SNMPTRAPD_LIBDEPS
     netsnmp
