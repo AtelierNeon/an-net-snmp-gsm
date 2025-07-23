@@ -26,7 +26,7 @@
  * See the PACKAGE_VERSION variable in Unix /configure script
 */
 #ifndef PACKAGE_VERSION
-#define PACKAGE_VERSION "5.9.1"
+#define PACKAGE_VERSION "5.9.4"
 #endif
 
 /* Define HAVE_WIN32_PLATFORM_SDK if you have:
@@ -320,7 +320,7 @@
 /* #undef HAVE_FSTAB_H */
 
 /* Define to 1 if you have the `getaddrinfo' function. */
-/* #undef HAVE_GETADDRINFO */
+#define HAVE_GETADDRINFO 1
 
 /* Define to 1 if you have the `getdtablesize' function. */
 /* #undef HAVE_GETDTABLESIZE */
@@ -1845,7 +1845,7 @@ enum {
 #define NETSNMP_CAN_USE_NLIST
 #endif
 
-#if HAVE_DMALLOC_H
+#ifdef HAVE_DMALLOC_H
 #define DMALLOC_FUNC_CHECK
 #endif
 

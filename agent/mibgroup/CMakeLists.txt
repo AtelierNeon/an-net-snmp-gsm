@@ -32,7 +32,6 @@ set (NETSNMP_NETSNMPMIBSLIB_SRCS
     disman/event/mteTriggerThresholdTable.c
     examples/example.c
     examples/ucdDemoPublic.c
-    ucd-snmp/disk.c
     ucd-snmp/dlmod.c
     ucd-snmp/errormib.c
     ucd-snmp/extensible.c
