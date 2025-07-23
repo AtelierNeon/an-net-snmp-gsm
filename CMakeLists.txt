@@ -2,7 +2,7 @@ cmake_minimum_required (VERSION 3.1...3.15.0)
 
 ## Project basic information
 project (netsnmp
-    VERSION 5.9.1
+    VERSION 5.9.4
     DESCRIPTION "Net-SNMP")
 
 ## Project options
