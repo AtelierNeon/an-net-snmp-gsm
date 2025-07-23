@@ -37,7 +37,7 @@ ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS
 SOFTWARE.
 ******************************************************************/
 /*
- * portions Copyright © 2003 Sun Microsystems, Inc. All rights reserved.
+ * portions Copyright ï¿½ 2003 Sun Microsystems, Inc. All rights reserved.
  * Use is subject to license terms specified in the COPYING file
  * distributed with the Net-SNMP package.
  */
@@ -120,7 +120,7 @@ SOFTWARE.
 #endif                          /* WIN32 */
 
 #include <net-snmp/types.h>     /* For definition of in_addr_t */
-#if HAVE_NETINET_IN_H
+#ifdef HAVE_NETINET_IN_H
 #include <netinet/in.h>
 #endif
 
