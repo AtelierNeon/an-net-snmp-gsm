@@ -1633,6 +1633,9 @@
 /* Define to 1 if you have the <xti.h> header file. */
 #cmakedefine HAVE_XTI_H 1
 
+/* Type of fd_set::fds_bits */
+#define NETSNMP_FD_MASK_TYPE __fd_mask
+
 /* Type of the fifth argument of select() */
 #define NETSNMP_SELECT_TIMEVAL struct timeval
 
