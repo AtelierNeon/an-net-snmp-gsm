@@ -206,6 +206,14 @@ else ()
     set (NETSNMP_PRIz "")
 endif ()
 
+if (UNIX)
+    if (APPLE)
+        set (NETSNMP_FD_MASK_TYPE "__int32_t")
+    else ()
+        set (NETSNMP_FD_MASK_TYPE "__fd_mask")
+    endif ()
+endif ()
+
 configure_file (${PROJECT_SOURCE_DIR}/include/agent_module_dot_conf.h.cmake
     ${PROJECT_BINARY_DIR}/include/agent_module_dot_conf.h )
 configure_file (${PROJECT_SOURCE_DIR}/include/agent_module_includes.h.cmake

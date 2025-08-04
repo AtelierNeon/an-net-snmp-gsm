@@ -1634,7 +1634,7 @@
 #cmakedefine HAVE_XTI_H 1
 
 /* Type of fd_set::fds_bits */
-#define NETSNMP_FD_MASK_TYPE __fd_mask
+#cmakedefine NETSNMP_FD_MASK_TYPE ${NETSNMP_FD_MASK_TYPE}
 
 /* Type of the fifth argument of select() */
 #define NETSNMP_SELECT_TIMEVAL struct timeval
