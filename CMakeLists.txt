@@ -13,11 +13,13 @@ option (NETSNMP_WITH_SSL "Build Net-SNMP with OpenSSL." OFF)
 option (NETSNMP_WITH_SHARED_LIBRARIES "Build shared version of the libnetsnmp library." OFF)
 option (NETSNMP_WITH_SHARED_LIBSSH2 "Build Net-SNMP with shared version of the libssh2 library." OFF)
 option (NETSNMP_WITH_WINEXTDLL "Build Net-SNMP with winExtDll." OFF)
+option (NETSNMP_WITHOUT_AGENT_LIBRARY "Build Net-SNMP without agent library." OFF)
 option (NETSNMP_WITHOUT_APPS "Build Net-SNMP without apps." OFF)
 option (NETSNMP_WITHOUT_INSTALL_ALL "Build Net-SNMP without installing all artifacts." OFF)
 option (NETSNMP_WITHOUT_INSTALL_FILES "Build Net-SNMP without installing files." OFF)
 option (NETSNMP_WITHOUT_INSTALL_HEADERS "Build Net-SNMP without installing headers." OFF)
 option (NETSNMP_WITHOUT_INSTALL_LIBRARIES "Build Net-SNMP without installing libraries." OFF)
+option (NETSNMP_WITHOUT_MIB_LIBRARY "Build Net-SNMP without MIB library." OFF)
 option (NETSNMP_WITHOUT_MIB_LOADING "Build Net-SNMP without MIB loading." OFF)
 
 ## Separate version number into 4 parts
