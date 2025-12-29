@@ -9,7 +9,7 @@
  */
 /*
  * Portions of this file are copyrighted by:
- * Copyright © 2003 Sun Microsystems, Inc. All rights reserved.
+ * Copyright ï¿½ 2003 Sun Microsystems, Inc. All rights reserved.
  * Use is subject to license terms specified in the COPYING file
  * distributed with the Net-SNMP package.
  */
@@ -63,6 +63,9 @@
 #endif
 #ifdef HAVE_NET_IF_VAR_H
 #include <net/if_var.h>
+#endif
+#ifdef HAVE_NETINET_IN_VAR_H
+#include <netinet/in_var.h>
 #endif
 #ifdef _I_DEFINED_KERNEL
 #undef _KERNEL
