@@ -2,7 +2,7 @@ cmake_minimum_required (VERSION 3.1...3.15.0)
 
 ## Project basic information
 project (netsnmp
-    VERSION 5.9.4
+    VERSION 5.9.5.2
     DESCRIPTION "Net-SNMP")
 
 ## Project options
@@ -173,6 +173,7 @@ if (NETSNMP_WITH_SSL AND OPENSSL_FOUND)
     set (HAVE_DH_SET0_PQG 1)
     set (HAVE_DTLSV1_METHOD 1)
     set (HAVE_DTLS_METHOD 1)
+    set (HAVE_EVP_AES_128_CFB 1)
     set (HAVE_EVP_MD_CTX_CREATE 1)
     set (HAVE_EVP_MD_CTX_DESTROY 1)
     set (HAVE_EVP_MD_CTX_FREE 1)

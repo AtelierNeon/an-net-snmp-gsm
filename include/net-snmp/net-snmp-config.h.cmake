@@ -239,6 +239,9 @@
 /* Define to 1 if you have the `ERR_get_error_all' function. */
 #undef HAVE_ERR_GET_ERROR_ALL
 
+/* Define to 1 if you have the `ERR_get_error_func' function. */
+#undef HAVE_ERR_GET_ERROR_FUNC
+
 /* Define to 1 if you have the <err.h> header file. */
 #cmakedefine HAVE_ERR_H 1
 
@@ -247,6 +250,9 @@
 
 /* Define to 1 if you have the `eval_pv' function. */
 #cmakedefine HAVE_EVAL_PV 1
+
+/* Define to 1 if you have the `EVP_aes_128_cfb' function. */
+#cmakedefine HAVE_EVP_AES_128_CFB ${HAVE_EVP_AES_128_CFB}
 
 /* Define to 1 if you have the `EVP_MD_CTX_create' function. */
 #cmakedefine HAVE_EVP_MD_CTX_CREATE ${HAVE_EVP_MD_CTX_CREATE}
