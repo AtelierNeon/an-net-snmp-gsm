@@ -2,4 +2,3 @@
   if (should_init("usmConf")) init_usmConf();
   if (should_init("iquery")) init_iquery();
   if (should_init("vacm_conf")) init_vacm_conf();
-

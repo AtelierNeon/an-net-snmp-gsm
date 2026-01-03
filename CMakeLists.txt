@@ -222,6 +222,8 @@ configure_file (${PROJECT_SOURCE_DIR}/include/agent_module_includes.h.cmake
     ${PROJECT_BINARY_DIR}/include/agent_module_includes.h )
 configure_file (${PROJECT_SOURCE_DIR}/include/agent_module_inits.h.cmake
     ${PROJECT_BINARY_DIR}/include/agent_module_inits.h )
+configure_file (${PROJECT_SOURCE_DIR}/include/agent_module_shutdown.h.cmake
+    ${PROJECT_BINARY_DIR}/include/agent_module_shutdown.h )
 configure_file (${PROJECT_SOURCE_DIR}/include/mib_module_dot_conf.h.cmake
     ${PROJECT_BINARY_DIR}/include/mib_module_dot_conf.h )
 configure_file (${PROJECT_SOURCE_DIR}/include/mib_module_includes.h.cmake

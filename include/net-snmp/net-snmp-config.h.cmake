@@ -398,6 +398,11 @@
 
 /* Define to 1 if you have the `if_nametoindex' function. */
 #ifdef WIN32
+/*
+ * Although if_nametoindex() is available on Windows Vista, Windows Server
+ * 2008 and later in iphlpapi.dll, do not link with if_nametoindex() such
+ * that the Net-SNMP executable can be started on earlier Windows versions.
+ */
 # cmakedefine HAVE_IF_NAMETOINDEX 1
 #else
 # cmakedefine HAVE_IF_NAMETOINDEX 1
@@ -457,8 +462,8 @@
 /* Define to 1 if you have the <io.h> header file. */
 #cmakedefine HAVE_IO_H 1
 
-/* Define to 1 if you have the <iphlpapi.h> header file. */
 #ifdef HAVE_WIN32_PLATFORM_SDK
+/* Define to 1 if you have the <iphlpapi.h> header file. */
 # define HAVE_IPHLPAPI_H 1
 #else
 # cmakedefine HAVE_IPHLPAPI_H 1
@@ -1334,6 +1339,9 @@
 /* Define to 1 if you have the `system' function. */
 #cmakedefine HAVE_SYSTEM 1
 
+/* Define to 1 if you have the <sys/callout.h> header file. */
+#cmakedefine HAVE_SYS_CALLOUT_H 1
+
 /* Define to 1 if you have the <sys/cdefs.h> header file. */
 #cmakedefine HAVE_SYS_CDEFS_H 1
 
@@ -1688,8 +1696,8 @@
 /* if defined daemons will use syslog when no log destination is defined */
 #undef NETSNMP_DAEMONS_DEFAULT_LOG_SYSLOG
 
-/* default location to look for mibs to load using the above tokens and/or
-   those in the MIBS envrionment variable */
+/* default location to look for mibs to load using the above tokens
+   and/or those in the MIBS envrionment variable*/
 #cmakedefine NETSNMP_DEFAULT_MIBDIRS ${NETSNMP_DEFAULT_MIBDIRS}
 
 /* default mib files to load, specified by path. */
@@ -1734,8 +1742,8 @@
 /* Define if you want to build MFD module rewrites */
 #undef NETSNMP_ENABLE_MFD_REWRITES
 
-/* define if you want to compile support for both authentication and privacy
-   support. */
+/* define if you want to compile support for both authentication and
+   privacy support. */
 #cmakedefine NETSNMP_ENABLE_SCAPI_AUTHPRIV ${NETSNMP_ENABLE_SCAPI_AUTHPRIV}
 
 /* testing code sections. */
@@ -1766,8 +1774,7 @@
 /* Define to suppress inclusion of deprecated functions */
 #undef NETSNMP_NO_DEPRECATED_FUNCTIONS
 
-/* If you don't want the agent to report on variables it doesn't have data for
-   */
+/* If you don't want the agent to report on variables it doesn't have data for */
 #cmakedefine NETSNMP_NO_DUMMY_VALUES 1
 
 /* If we don't want to use kmem. */
@@ -1895,14 +1902,14 @@
 
 /* If using the C implementation of alloca, define if you know the
    direction of stack growth for your system; otherwise it will be
-   automatically deduced at runtime.
-	STACK_DIRECTION > 0 => grows toward higher addresses
-	STACK_DIRECTION < 0 => grows toward lower addresses
-	STACK_DIRECTION = 0 => direction of growth unknown */
+   automatically deduced at run-time.
+        STACK_DIRECTION > 0 => grows toward higher addresses
+        STACK_DIRECTION < 0 => grows toward lower addresses
+        STACK_DIRECTION = 0 => direction of growth unknown */
 #undef STACK_DIRECTION
 
-/* Define if statfs takes 2 args and the second argument has type struct
-   fs_data. [Ultrix] */
+/* Define if statfs takes 2 args and the second argument has
+   type struct fs_data. [Ultrix] */
 #undef STAT_STATFS_FS_DATA
 
 /* Define to 1 if you have the ANSI C header files. */
@@ -1937,8 +1944,8 @@
     )
 #endif
 
-/* Define if the TCP timer constants in <netinet/tcp_timer.h> depend on the
-   integer variable 'hz'. [FreeBSD 4.x] */
+/* Define if the TCP timer constants in <netinet/tcp_timer.h>
+   depend on the integer variable `hz'.  [FreeBSD 4.x] */
 #undef TCPTV_NEEDS_HZ
 
 /* Define to 1 if you can safely include both <sys/time.h> and <time.h>. */
@@ -1947,37 +1954,55 @@
 /* Where is the uname command */
 #define UNAMEPROG "/bin/uname"
 
-/* Enable extensions on AIX 3, Interix.  */
+/* Enable extensions on AIX, Interix, z/OS.  */
 #ifndef _ALL_SOURCE
 # undef _ALL_SOURCE
 #endif
-/* Enable GNU extensions on systems that have them.  */
-#ifndef _GNU_SOURCE
-# undef _GNU_SOURCE
-#endif
-/* Enable threading extensions on Solaris.  */
-#ifndef _POSIX_PTHREAD_SEMANTICS
-# undef _POSIX_PTHREAD_SEMANTICS
-#endif
-/* Enable extensions on HP NonStop.  */
-#ifndef _TANDEM_SOURCE
-# undef _TANDEM_SOURCE
+/* Enable general extensions on macOS.  */
+#ifndef _DARWIN_C_SOURCE
+# undef _DARWIN_C_SOURCE
 #endif
 /* Enable general extensions on Solaris.  */
 #ifndef __EXTENSIONS__
 # undef __EXTENSIONS__
 #endif
-
-
-/* Define to 1 if on MINIX. */
-#undef _MINIX
-
-/* Define to 2 if the system does not provide POSIX.1 features except with
-   this defined. */
-#undef _POSIX_1_SOURCE
-
-/* Define to 1 if you need to in order for `stat' and other things to work. */
-#undef _POSIX_SOURCE
+/* Enable GNU extensions on systems that have them.  */
+#ifndef _GNU_SOURCE
+# undef _GNU_SOURCE
+#endif
+/* Enable X/Open compliant socket functions that do not require linking
+   with -lxnet on HP-UX 11.11.  */
+#ifndef _HPUX_ALT_XOPEN_SOCKET_API
+# undef _HPUX_ALT_XOPEN_SOCKET_API
+#endif
+/* Identify the host operating system as Minix.
+   This macro does not affect the system headers' behavior.
+   A future release of Autoconf may stop defining this macro.  */
+#ifndef _MINIX
+# undef _MINIX
+#endif
+/* Enable general extensions on NetBSD.
+   Enable NetBSD compatibility extensions on Minix.  */
+#ifndef _NETBSD_SOURCE
+# undef _NETBSD_SOURCE
+#endif
+/* Enable OpenBSD compatibility extensions on NetBSD.
+   Oddly enough, this does nothing on OpenBSD.  */
+#ifndef _OPENBSD_SOURCE
+# undef _OPENBSD_SOURCE
+#endif
+/* Define to 1 if needed for POSIX-compatible behavior.  */
+#ifndef _POSIX_SOURCE
+# undef _POSIX_SOURCE
+#endif
+/* Define to 2 if needed for POSIX-compatible behavior.  */
+#ifndef _POSIX_1_SOURCE
+# undef _POSIX_1_SOURCE
+#endif
+/* Enable POSIX-compatible threading on Solaris.  */
+#ifndef _POSIX_PTHREAD_SEMANTICS
+# undef _POSIX_PTHREAD_SEMANTICS
+#endif
 
 /* Define for Solaris 2.5.1 so the uint32_t typedef from <sys/synch.h>,
    <pthread.h>, or <semaphore.h> is not used. If the typedef were allowed, the
@@ -1994,7 +2019,7 @@
    #define below would cause a syntax error. */
 #undef _UINT8_T
 
-/* Define to empty if `const' does not conform to ANSI C. */
+/* Define to empty if 'const' does not conform to ANSI C. */
 #undef const
 
 /* type check for in_addr_t */
@@ -2002,7 +2027,7 @@
 #define in_addr_t unsigned long
 #endif
 
-/* Define to `__inline__' or `__inline' if that's what the C compiler
+/* Define to '__inline__' or '__inline' if that's what the C compiler
    calls it, or to nothing if 'inline' is not supported under any name.  */
 #ifndef __cplusplus
 #undef inline
@@ -2032,13 +2057,13 @@
    if such a type exists, and if the system does not define it. */
 #undef intptr_t
 
-/* Define to `long int' if <sys/types.h> does not define. */
+/* Define to 'long int' if <sys/types.h> does not define. */
 #undef off_t
 
-/* Define to `int' if <sys/types.h> does not define. */
+/* Define as a signed integer type capable of holding a process identifier. */
 #undef pid_t
 
-/* Define to `unsigned int' if <sys/types.h> does not define. */
+/* Define as 'unsigned int' if <stddef.h> doesn't define. */
 #undef size_t
 
 /* Define to the type of an unsigned integer type of width exactly 16 bits if
@@ -2069,7 +2094,11 @@
 
 /* If you have openssl 0.9.7 or above, you likely have AES support. */
 /* #undef NETSNMP_USE_OPENSSL */
-#if (defined(NETSNMP_USE_OPENSSL) && defined(HAVE_OPENSSL_AES_H) && defined(HAVE_AES_CFB128_ENCRYPT)) || defined(NETSNMP_USE_INTERNAL_CRYPTO)
+#if (defined(NETSNMP_USE_OPENSSL) &&            \
+     defined(HAVE_OPENSSL_AES_H) &&             \
+     defined(HAVE_AES_CFB128_ENCRYPT) &&        \
+     defined(HAVE_EVP_AES_128_CFB)) ||          \
+    defined(NETSNMP_USE_INTERNAL_CRYPTO)
 #define HAVE_AES 1
 #endif
 
@@ -2086,8 +2115,6 @@
 #endif
 
 #endif /* NETSNMP_NO_AUTOCONF_DEFINITIONS */
-
-
 
 
 /* ********* NETSNMP_MARK_BEGIN_CLEAN_NAMESPACE ********* */
@@ -2119,17 +2146,17 @@
 #define NETSNMP_USE_REVERSE_ASNENCODING       1
 #define NETSNMP_DEFAULT_ASNENCODING_DIRECTION 1 /* 1 = reverse, 0 = forwards */
 
-/* PERSISTENT_DIRECTORY: If defined, the library is capabile of saving
+/* NETSNMP_PERSISTENT_DIRECTORY: If defined, the library is capabile of saving
    persisant information to this directory in the form of configuration
-   lines: PERSISTENT_DIRECTORY/NAME.persistent.conf */
+   lines: NETSNMP_PERSISTENT_DIRECTORY/NAME.persistent.conf */
 #cmakedefine NETSNMP_PERSISTENT_DIRECTORY ${NETSNMP_PERSISTENT_DIRECTORY}
 
-/* AGENT_DIRECTORY_MODE: the mode the agents should use to create
+/* NETSNMP_AGENT_DIRECTORY_MODE: the mode the agents should use to create
    directories with. Since the data stored here is probably sensitive, it
    probably should be read-only by root/administrator. */
 #define NETSNMP_AGENT_DIRECTORY_MODE 0700
 
-/* MAX_PERSISTENT_BACKUPS:
+/* NETSNMP_MAX_PERSISTENT_BACKUPS:
  *   The maximum number of persistent backups the library will try to
  *   read from the persistent cache directory.  If an application fails to
  *   close down successfully more than this number of times, data will be lost.
@@ -2155,8 +2182,8 @@
 #cmakedefine SNMPCONFPATH ${SNMPCONFPATH}
 #cmakedefine SNMPDLMODPATH ${SNMPDLMODPATH}
 
-/* NETSNMP_LOGFILE:  If defined it closes stdout/err/in and opens this in 
-   out/err's place.  (stdin is closed so that sh scripts won't wait for it) */
+/* NETSNMP_LOGFILE:  If defined it closes stdout/err/in and opens this in out/err's
+   place.  (stdin is closed so that sh scripts won't wait for it) */
 #undef NETSNMP_LOGFILE
 
 /* default system contact */
@@ -2218,12 +2245,12 @@
    .iso.org.dod.internet.mgmt.mib-2.system.sysObjectID.0 */
 #define NETSNMP_AGENTID 250
 
-/* This ID is returned after the AGENTID above.  IE, the resulting
+/* This ID is returned after the NETSNMP_AGENTID above.  IE, the resulting
    value returned by a query to sysObjectID is
-   EXTENSIBLEMIB.AGENTID.???, where ??? is defined below by OSTYPE */
+   EXTENSIBLEMIB.NETSNMP_AGENTID.???, where ??? is defined below by OSTYPE */
 
 #define NETSNMP_HPUX9ID 1
-#define NETSNMP_SUNOS4ID 2 
+#define NETSNMP_SUNOS4ID 2
 #define NETSNMP_SOLARISID 3
 #define NETSNMP_OSFID 4
 #define NETSNMP_ULTRIXID 5
@@ -2325,7 +2352,7 @@
 #define NETSNMP_UCDAVIS_DOT_MIB_LENGTH	7
 
 /* how long to wait (seconds) for error querys before reseting the error trap.*/
-#define NETSNMP_ERRORTIMELENGTH 600 
+#define NETSNMP_ERRORTIMELENGTH 600
 
 /* Exec command to fix PROC problems */
 /* %s will be replaced by the process name in error */
@@ -2343,7 +2370,7 @@
 
 #define NETSNMP_EXCACHETIME 30
 #define NETSNMP_CACHEFILE ".snmp-exec-cache"
-#define NETSNMP_MAXCACHESIZE (1500*80)   /* roughly 1500 lines max */
+#define NETSNMP_MAXCACHESIZE (200*80)   /* roughly 200 lines max */
 
 /* misc defaults */
 
@@ -2351,31 +2378,27 @@
    the config file */
 #define NETSNMP_DEFDISKMINIMUMSPACE 100000
 
-/* default maximum load average before error */
-#define NETSNMP_DEFMAXLOADAVE 12.0
+#define NETSNMP_DEFMAXLOADAVE 12.0      /* default maximum load average before error */
 
-/* max times to loop reading output from execs. */
 /* Because of sleep(1)s, this will also be time to wait (in seconds) for exec
    to finish */
-#define NETSNMP_MAXREADCOUNT 100
+#define NETSNMP_MAXREADCOUNT 100   /* max times to loop reading output from execs. */
 
-/* Set if snmpgets should block and never timeout */
 /* The original CMU code had this hardcoded as = 1 */
-#define NETSNMP_SNMPBLOCK 1
+#define NETSNMP_SNMPBLOCK 1       /* Set if snmpgets should block and never timeout */
 
 /* How long to wait before restarting the agent after a snmpset to
-   EXTENSIBLEMIB.VERSIONMIBNUM.VERRESTARTAGENT.  This is
+   EXTENSIBLEMIB.NETSNMP_VERSIONMIBNUM.VERRESTARTAGENT.  This is
    necessary to finish the snmpset reply before restarting. */
 #define NETSNMP_RESTARTSLEEP 5
-
-/* UNdefine to allow specifying zero-length community string */
-/* #define NETSNMP_NO_ZEROLENGTH_COMMUNITY 1 */
 
 /* Number of community strings to store */
 #define NETSNMP_NUM_COMMUNITIES	5
 
-/* internal define */
-#define NETSNMP_LASTFIELD -1
+/* UNdefine to allow specifying zero-length community string */
+/* #define NETSNMP_NO_ZEROLENGTH_COMMUNITY 1 */
+
+#define NETSNMP_LASTFIELD -1      /* internal define */
 
 /*  Pluggable transports.  */
 
@@ -2407,10 +2430,12 @@
     available.  */
 #cmakedefine NETSNMP_TRANSPORT_IPX_DOMAIN ${NETSNMP_TRANSPORT_IPX_DOMAIN}
 
+/* XXX do not modify. change the NETSNMP_ENABLE_IPV6 define instead */
 /*  This is defined if support for the UDP/IPv6 transport domain is
     available.  */
 #cmakedefine NETSNMP_TRANSPORT_UDPIPV6_DOMAIN ${NETSNMP_TRANSPORT_UDPIPV6_DOMAIN}
 
+/* XXX do not modify. change the NETSNMP_ENABLE_IPV6 define instead */
 /*  This is defined if support for the TCP/IPv6 transport domain is
     available.  */
 #cmakedefine NETSNMP_TRANSPORT_TCPIPV6_DOMAIN ${NETSNMP_TRANSPORT_TCPIPV6_DOMAIN}
@@ -2456,10 +2481,10 @@
 /* this is the location of the net-snmp mib tree.  It shouldn't be
    changed, as the places it is used are expected to be constant
    values or are directly tied to the UCD-SNMP-MIB. */
-#define NETSNMP_OID		8072
-#define NETSNMP_MIB		1,3,6,1,4,1,8072
-#define NETSNMP_DOT_MIB		1.3.6.1.4.1.8072
-#define NETSNMP_DOT_MIB_LENGTH	7
+#define NETSNMP_OID             8072
+#define NETSNMP_MIB             1,3,6,1,4,1,8072
+#define NETSNMP_DOT_MIB         1.3.6.1.4.1.8072
+#define NETSNMP_DOT_MIB_LENGTH  7
 
 /*
  * this must be before the system/machine includes, to allow them to
@@ -2535,7 +2560,7 @@
 #  define NETSNMP_IMPORT extern
 #endif
 
-/* comment the next line if you are compiling with libsnmp.h 
+/* comment the next line if you are compiling with libsnmp.h
    and are not using the UC-Davis SNMP library. */
 #define UCD_SNMP_LIBRARY 1
 
