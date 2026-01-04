@@ -2,7 +2,7 @@
 # the Net-SNMP's COPYING file for more details and other copyrights
 # that may apply:
 #
-# Portions Copyright © 2003 Sun Microsystems, Inc. All rights reserved.
+# Portions Copyright ï¿½ 2003 Sun Microsystems, Inc. All rights reserved.
 # Use is subject to license terms specified in the COPYING file
 # distributed with the Net-SNMP package.
 #
@@ -15,7 +15,7 @@
 #
 # Process this file with autoconf to produce a configure script.
 #
-AC_INIT([Net-SNMP],[5.9.4.pre2],[net-snmp-coders@lists.sourceforge.net])
+AC_INIT([Net-SNMP],[5.9.5.2],[net-snmp-coders@lists.sourceforge.net])
 AC_PREREQ([2.71])
 AC_CONFIG_SRCDIR([agent/snmpd.c])
 AC_REVISION([$Revision$])

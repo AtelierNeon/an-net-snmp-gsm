@@ -4,7 +4,7 @@
  */
 /*
  * Portions of this file are copyrighted by:
- * Copyright © 2003 Sun Microsystems, Inc. All rights reserved.
+ * Copyright ï¿½ 2003 Sun Microsystems, Inc. All rights reserved.
  * Use is subject to license terms specified in the COPYING file
  * distributed with the Net-SNMP package.
  */
@@ -249,10 +249,6 @@ typedef int (Netsnmp_Node_Handler) (netsnmp_mib_handler *handler,
         netsnmp_request_add_list_data(netsnmp_request_info *request,
                                       netsnmp_data_list *node);
     int netsnmp_request_remove_list_data(netsnmp_request_info *request,
-                                         const char *name);
-
-    int
-        netsnmp_request_remove_list_data(netsnmp_request_info *request,
                                          const char *name);
 
     void    *netsnmp_request_get_list_data(netsnmp_request_info
