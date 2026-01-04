@@ -237,10 +237,10 @@
 #undef HAVE_ENDFSENT
 
 /* Define to 1 if you have the `ERR_get_error_all' function. */
-#undef HAVE_ERR_GET_ERROR_ALL
+#cmakedefine HAVE_ERR_GET_ERROR_ALL ${HAVE_ERR_GET_ERROR_ALL}
 
 /* Define to 1 if you have the `ERR_get_error_func' function. */
-#undef HAVE_ERR_GET_ERROR_FUNC
+#cmakedefine HAVE_ERR_GET_ERROR_FUNC ${HAVE_ERR_GET_ERROR_FUNC}
 
 /* Define to 1 if you have the <err.h> header file. */
 #cmakedefine HAVE_ERR_H 1
